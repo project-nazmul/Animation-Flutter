@@ -24,49 +24,26 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     AnimatedAlign(
                       alignment: value=="LEFT"?Alignment.centerLeft
-                          :value=="RIGHT"?Alignment.centerRight
-                          :value=="UP"?Alignment.topCenter
-                          :value=="DOWN"?Alignment.bottomCenter:Alignment.topLeft,
-                      duration: Duration(seconds: 5),
-                      child: Container(
-                        height: 50,
-                        width: 50,
+                      :value=="RIGHT"?Alignment.centerRight
+                      :value=="UP"?Alignment.topCenter
+                      :value=="DOWN"?Alignment.bottomCenter:Alignment.topCenter,
+                      duration: const Duration(seconds: 4),
+                      child: AnimatedContainer(
+                        duration: const Duration(seconds: 4),
+                        height: 100,
+                        width: 100,
                         decoration: BoxDecoration(
-                          color: Colors.red,
-                          borderRadius: BorderRadius.all(Radius.circular(30))
+                          color: value =="LEFT"?Colors.red
+                              :value=="RIGHT"?Colors.blue
+                              :value=="UP"?Colors.green
+                              :value=="DOWN"?Colors.amber:Colors.purpleAccent,
+                          borderRadius: BorderRadius.all(Radius.circular(value =="LEFT"?10
+                              :value=="RIGHT"?60
+                              :value=="UP"?10
+                              :value=="DOWN"?60:0))
                         ),
-                      ),
-                    ),
-                    AnimatedAlign(
-                      alignment: value=="LEFT"?Alignment.centerLeft
-                          :value=="RIGHT"?Alignment.centerRight
-                          :value=="UP"?Alignment.topCenter
-                          :value=="DOWN"?Alignment.bottomCenter:Alignment.topCenter,
-                      duration: Duration(seconds: 7),
-                      child: Container(
-                        height: 50,
-                        width: 50,
-                        decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.all(Radius.circular(30))
-                        ),
-                      ),
-                    ),
-                    AnimatedAlign(
-                      alignment: value=="LEFT"?Alignment.centerLeft
-                          :value=="RIGHT"?Alignment.centerRight
-                          :value=="UP"?Alignment.topCenter
-                          :value=="DOWN"?Alignment.bottomCenter:Alignment.topRight,
-                      duration: Duration(seconds: 9),
-                      child: Container(
-                        height: 50,
-                        width: 50,
-                        decoration: BoxDecoration(
-                            color: Colors.green,
-                            borderRadius: BorderRadius.all(Radius.circular(30))
-                        ),
-                      ),
-                    ),
+                      )
+                    )
                   ],
                 ),
               )
